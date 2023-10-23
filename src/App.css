@@ -1,0 +1,78 @@
+::-webkit-scrollbar {
+    width: 0.75rem;
+}
+::-webkit-scrollbar-track {
+    background-color: white;
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgba(13,110,253);
+}
+.App{
+    height: 100vh;
+    overflow: auto;
+}
+.size {
+    font-size: 14px !important;
+    font-weight: 100 !important;
+}
+table {
+    width: 1065px !important;
+    margin: 0px auto;
+}
+.myTable {
+    overflow-y: auto;
+}
+.side {
+    width: 250px !important;
+    height: 100%;
+    z-index: 1000;
+    position: fixed !important;
+    top:0 !important;
+    left:0 !important;
+}
+.colorBlue {
+    background-color: rgba(13,110,253);
+}
+.wid {
+    width: calc(100% - 270px);
+    margin-left: auto;
+    min-height: 100%;
+}
+.myFonSi {
+    font-size: 17px;
+}
+.divInput {
+    width: 50% !important;
+}
+@media(max-width:600px) {
+    .divInput {
+        width: 100% !important;
+    }
+}
+.myposition {
+    position: absolute;
+    bottom: 0;
+    width: 87%;
+}
+.myImg {
+    width: 35px;
+    height: 35px;
+}
+@media(max-width:767px) {
+    .side {
+        width: 70px !important;
+    }
+    .side li {
+        text-align: center !important;
+        padding: 5px 0px !important;
+    }
+    .side span {
+        display: none !important;
+    }
+    .wid {
+        width: calc(100% - 90px);
+    }
+    .myposition {
+        width: 55%;
+    }
+}
