@@ -49,35 +49,39 @@ export default function Table(){
                         <th className="border">Action</th>
                     </thead>
                     <tbody>
-                        {
-                            user.map((ele)=>{
-                                return (
-                                    ele.firstname.includes(name) ||  ele.lastname.includes(name) ?
-                                    <tr key={ele.id}>
-                                        <td className="border">{ele.id}</td>
-                                        <td className="border text-capitalize">{ele.firstname} {ele.lastname}</td>
-                                        <td className="border text-capitalize">{ele.gender}</td>
-                                        <td className="border text-capitalize">{ele.country}</td>
-                                        <td className="border">{ele.age}</td>
-                                        <td className="border">{ele.email}</td>
-                                        <td className="border">
-                                            <buttton onClick={()=>view(`/Home/ViewDetails/${ele.id}`)}
-                                            className="btn btn-primary me-1 p-1 px-2 size" title="View Details">
-                                                <i className="fa-regular fa-eye"></i>
-                                            </buttton>
-                                            <buttton onClick={()=>view(`/Home/EditUser/${ele.id}`)}
-                                            className="btn btn-primary me-1 p-1 px-2 size" title="Edit User">
-                                                <i className="fa-solid fa-pencil "></i>
-                                            </buttton>
-                                            <buttton onClick={()=> deleteUser(ele)}
-                                            className="btn btn-danger p-1 px-2 size" title="Delete User">
-                                                <i className="fa-regular fa-trash-can "></i>
-                                            </buttton>
-                                        </td>
-                                    </tr>
-                                    : null
-                                )
-                            })
+                    {
+                            user.length > 0 ?
+                                user.map((ele)=>{
+                                    return (
+                                        ele.firstname.includes(name) ||  ele.lastname.includes(name) ?
+                                        <tr key={ele.id}>
+                                            <td className="border">{ele.id}</td>
+                                            <td className="border text-capitalize">{ele.firstname} {ele.lastname}</td>
+                                            <td className="border text-capitalize">{ele.gender}</td>
+                                            <td className="border text-capitalize">{ele.country}</td>
+                                            <td className="border">{ele.age}</td>
+                                            <td className="border">{ele.email}</td>
+                                            <td className="border">
+                                                <buttton onClick={()=>view(`/Home/ViewDetails/${ele.id}`)}
+                                                className="btn btn-primary me-1 p-1 px-2 size" title="View Details">
+                                                    <i className="fa-regular fa-eye"></i>
+                                                </buttton>
+                                                <buttton onClick={()=>view(`/Home/EditUser/${ele.id}`)}
+                                                className="btn btn-primary me-1 p-1 px-2 size" title="Edit User">
+                                                    <i className="fa-solid fa-pencil "></i>
+                                                </buttton>
+                                                <buttton onClick={()=> deleteUser(ele)}
+                                                className="btn btn-danger p-1 px-2 size" title="Delete User">
+                                                    <i className="fa-regular fa-trash-can "></i>
+                                                </buttton>
+                                            </td>
+                                        </tr>
+                                        : null
+                                    )
+                                }) : <tr><td colSpan={7} className='text-center'><div class="d-flex justify-content-center">
+                                    <div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>
+                                    </div>
+                                    </td></tr>
                         }
                     </tbody>
                 </table>

@@ -1,21 +1,14 @@
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import myImg from "../myphoto.jpg";
 
 export default function Aside(){
     let myUrl = useNavigate();
-    function change(){
-        let first = document.querySelector(".first");
-        let ele = document.querySelector(".second");
-        first.classList.remove("colorBlue");
-        ele.classList.add("colorBlue");
-        myUrl("/Home/AddCutomer");
+    function changeUrl(url){
+        myUrl(url);
     }
-    function defChange(){
-        let first = document.querySelector(".first");
-        let ele = document.querySelector(".second");
-        ele.classList.remove("colorBlue");
-        first.classList.add("colorBlue");
-        myUrl("/Home");
-    }
+    const [colorHome,setColor] = useState("rgba(13,110,253)");
+    const [colorAdd,setColorAdd] = useState("inherit");
     return (
         <div className="bg-dark text-white side py-4 px-3">
             <div className="title pb-2 border-bottom border-secondary">
@@ -24,12 +17,14 @@ export default function Aside(){
             </div>
             <div className="pt-3">
                 <ul className="list-unstyled">
-                    <li onClick={()=>defChange()} className="mb-2 p-2 px-3 rounded-2 colorBlue first">
+                    <li onClick={()=>{setColor("rgba(13,110,253)"); setColorAdd("inherit"); changeUrl("/Home")}}
+                    className="mb-2 p-2 px-3 rounded-2" style={{backgroundColor:`${colorHome}`}}>
                         <Link className="text-white text-decoration-none">
                         <i className="fa-solid fa-house-chimney"></i>
                         <span className="ms-3">Home</span></Link>
                     </li>
-                    <li onClick={()=>change()} className=" p-2 px-3 rounded-2 second">
+                    <li onClick={()=>{setColor("inherit");setColorAdd("rgba(13,110,253)");changeUrl("/Home/AddCutomer")}} 
+                    className="p-2 px-3 rounded-2" style={{backgroundColor:`${colorAdd}`}}>
                         <Link className="text-white text-decoration-none">
                         <i className="fa-regular fa-circle-user"></i>
                         <span className="ms-3">Add Customers</span></Link>
@@ -39,7 +34,7 @@ export default function Aside(){
             <div className="myposition">
                 <div className="py-2 border-top border-secondary w-100">
                     <Link to="http://www.linkedin.com/in/abdo-ahmed-67185a28a" className="text-white text-decoration-none" target="_blank">
-                        <img className="myImg rounded-circle me-0 me-md-2" src="../myphoto.jpg" alt="" />
+                        <img className="myImg rounded-circle me-0 me-md-2" src={myImg} alt="" />
                         <span className="fw-semibold">Abdulrahman</span>
                     </Link>
                 </div>

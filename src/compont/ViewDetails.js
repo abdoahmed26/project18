@@ -20,42 +20,55 @@ export default function ViewDetails(){
             <div className=" px-1">
                 <table className="border table table-striped w-100">
                     <tbody>
-                        <tr>
-                            <th className="border">First Name</th>
-                            <td className="border">{user.firstname}</td>
-                        </tr>
-                        <tr>
-                            <th className="border">Last Name</th>
-                            <td className="border">{user.lastname}</td>
-                        </tr>
-                        <tr>
-                            <th className="border">Username</th>
-                            <td className="border">{user.username}</td>
-                        </tr>
-                        <tr>
-                            <th className="border">Password</th>
-                            <td className="border">{user.password}</td>
-                        </tr>
-                        <tr>
-                            <th className="border">Email</th>
-                            <td className="border">{user.email}</td>
-                        </tr>
-                        <tr>
-                            <th className="border">Telephone</th>
-                            <td className="border">{user.phone}</td>
-                        </tr>
-                        <tr>
-                            <th className="border">Country</th>
-                            <td className="border">{user.country}</td>
-                        </tr>
-                        <tr>
-                            <th className="border">Gender</th>
-                            <td className="border">{user.gender}</td>
-                        </tr>
-                        <tr>
-                            <th className="border">Age</th>
-                            <td className="border">{user.age}</td>
-                        </tr>
+                        {
+                            user.firstname ?
+                                <>
+                                    <tr>
+                                        <th className="border">First Name</th>
+                                        <td className="border">{user.firstname}</td>
+                                    </tr>
+                                    <tr>
+                                        <th className="border">Last Name</th>
+                                        <td className="border">{user.lastname}</td>
+                                    </tr>
+                                    <tr>
+                                        <th className="border">Username</th>
+                                        <td className="border">{user.username}</td>
+                                    </tr>
+                                    <tr>
+                                        <th className="border">Password</th>
+                                        <td className="border">{user.password}</td>
+                                    </tr>
+                                    <tr>
+                                        <th className="border">Email</th>
+                                        <td className="border">{user.email}</td>
+                                    </tr>
+                                    <tr>
+                                        <th className="border">Telephone</th>
+                                        <td className="border">{user.phone}</td>
+                                    </tr>
+                                    <tr>
+                                        <th className="border">Country</th>
+                                        <td className="border">{user.country}</td>
+                                    </tr>
+                                    <tr>
+                                        <th className="border">Gender</th>
+                                        <td className="border">{user.gender}</td>
+                                    </tr>
+                                    <tr>
+                                        <th className="border">Age</th>
+                                        <td className="border">{user.age}</td>
+                                    </tr>
+                                </>:<tr>
+                                        <td colSpan={2} className='text-center'>
+                                            <div className="d-flex justify-content-center">
+                                                <div className="spinner-border" role="status">
+                                                    <span className="visually-hidden">Loading...</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                        }
                     </tbody>
                 </table>
             </div>
