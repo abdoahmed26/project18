@@ -49,11 +49,11 @@ export default function Table(){
                         <th className="border">Action</th>
                     </thead>
                     <tbody>
-                    {
+                        {
                             user.length > 0 ?
                                 user.map((ele)=>{
                                     return (
-                                        ele.firstname.includes(name) ||  ele.lastname.includes(name) ?
+                                        ele.firstname.includes(name.toLowerCase()) || ele.lastname.includes(name.toLowerCase()) ?
                                         <tr key={ele.id}>
                                             <td className="border">{ele.id}</td>
                                             <td className="border text-capitalize">{ele.firstname} {ele.lastname}</td>
@@ -78,10 +78,15 @@ export default function Table(){
                                         </tr>
                                         : null
                                     )
-                                }) : <tr><td colSpan={7} className='text-center'><div class="d-flex justify-content-center">
-                                    <div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>
-                                    </div>
-                                    </td></tr>
+                                }) : <tr>
+                                        <td colSpan={7} className='text-center'>
+                                            <div className="d-flex justify-content-center">
+                                                <div className="spinner-border" role="status">
+                                                    <span className="visually-hidden">Loading...</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
                         }
                     </tbody>
                 </table>
