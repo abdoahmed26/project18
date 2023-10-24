@@ -7,9 +7,9 @@ export default function Table(){
     let [user, setUser] = useState([]);
     let [name, setName] = useState("");
     let view = useNavigate()
-    useEffect(()=>{
+    // useEffect(()=>{
         getUser();
-    },[])
+    // },[])
     function getUser(){
         axios.get("https://apiforuser.onrender.com/users")
         .then((res)=> res.data)
