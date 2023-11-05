@@ -53,7 +53,8 @@ export default function Table(){
                             user.length > 0 ?
                                 user.map((ele)=>{
                                     return (
-                                        ele.firstname.includes(name.toLowerCase()) || ele.lastname.includes(name.toLowerCase()) ?
+                                        ele.firstname.toLowerCase().includes(name.toLowerCase()) 
+                                        || ele.lastname.toLowerCase().includes(name.toLowerCase()) ?
                                         <tr key={ele.id}>
                                             <td className="border">{ele.id}</td>
                                             <td className="border text-capitalize">{ele.firstname} {ele.lastname}</td>
